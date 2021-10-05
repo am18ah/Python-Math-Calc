@@ -14,4 +14,6 @@ Break down of work:
 	Front end: Kayleigh Elmo, Holly Jordan
 	Back end: Andres Molina, Wesley White, Matthew Torres 
 	Math functionality: Kayleigh Elmo, Holly Jordan, Matthew Torres
+	
+	
 ###################################################################
