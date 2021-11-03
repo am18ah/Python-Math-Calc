@@ -1,21 +1,18 @@
-<!-- {% extends "math_app/base.html" %}
- -->
+{% extends "math_app/base.html" %}
 {% block content %} 
-
 {% load crispy_forms_tags %}         
 
-<!--Register--> 
-<div style = "position:relative; left:0px; top:20px;">
+<div style = "position:relative; left:0px; top:45px;">
 <div class="container py-5">
 	
-		<h1>Register</h1>
+		<h2>Register</h2>
 	
 	<form method="POST">
 		{% csrf_token %}
 		{{ register_form|crispy }}                    
 		<button class="btn btn-primary" type="submit">Register</button>
 	</form>
-	<p class="text-center">If you already have an account, <a href="#">login</a> instead.</p>
+	<p class="text-center">If you already have an account, <a href="{% url 'math-login' %}">login</a> instead.</p>
 </div>
 </div>
-{% endblock %}
+{% endblock content %}
