@@ -1,3 +1,5 @@
+import math
+
 #this will serve as the main page for the functionality
 
 # use Django to create web interface
@@ -32,9 +34,54 @@ def Divide(x, y):
         ans = str(x) + "/" + str(y)   
         return ans
 
+def power(x,y):
+    if isinstance(x, (int, float)) and isinstance(y, (int, float)):
+        return math.pow(x,y)
+    else:
+        ans = str(x)+"^"+str(y)
+        return ans
 # function for pre-calculus
 
 # function for trigonometry
+
+#due to float arithmetic things such as sin(pi) != 
+#however they are still extremely small numbers could be a way to round it
+#for better user experience
+
+def findSin(x):
+    if isinstance(x, (int, float)):
+        return math.sin(x)
+    else:
+        ans = "sin(" + str(x) +")"
+        return ans
+
+def findCos(x):
+    if isinstance(x, (int, float)):
+        return math.cos(x)
+    else:
+        ans = "cos(" + str(x) +")"
+        return ans
+
+def findTan(x):
+    if isinstance(x, (int, float)):
+        return math.tan(x)
+    else:
+        ans = "tan(" + str(x) +")"
+        return ans
+
+def findCsc(x):
+    if isinstance(x, (int, float)):
+        return (1/math.sin(x))
+    else:
+        ans = "csc(" + str(x) +")"
+        return ans
+
+def findSec(x):
+    if isinstance(x, (int, float)):
+        return (1/math.cos(x))
+    else:
+        ans = "sec(" + str(x) +")"
+        return ans
 
 # function for statistics
 
