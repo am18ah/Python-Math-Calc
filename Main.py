@@ -85,6 +85,35 @@ def findSec(x):
 
 # function for statistics
 
+def findMean(x):
+    pass
+
+def findMedian(x):
+    pass
+
+def findMode(x):
+    pass
+
+def findMin(x):
+    pass
+
+def findMax(x):
+    pass
+
+def findStdDev(x):
+    pass
+
+def findVar(x):
+    pass
+
 # function for calculus
+def findIndefIntegral(x): #Indefinite Integral
+    pass
+
+def findDefIntegral(x): #Definite Integral
+    pass
+
+def findDerivative(x):
+    pass
 
 # function for linear algebra
