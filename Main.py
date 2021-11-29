@@ -1,4 +1,5 @@
 import math
+import statistics
 
 #this will serve as the main page for the functionality
 
@@ -86,16 +87,13 @@ def findSec(x):
 # function for statistics
 
 def findMean(x):
-    temp = 0
-    for i in range(0, len(x)):
-        temp = temp + x[i]
-    return temp/len(x)
+    return statistics.mean(x)
 
 def findMedian(x):
-    pass
+    return statistics.median(x)
 
 def findMode(x):
-    pass
+    return statistics.mode(x)
 
 def findMin(x):
     pass
@@ -104,10 +102,10 @@ def findMax(x):
     pass
 
 def findStdDev(x):
-    pass
+    statistics.stdev(x)
 
 def findVar(x):
-    pass
+    statistics.variance(x)
 
 # function for calculus
 def findIndefIntegral(x): #Indefinite Integral
