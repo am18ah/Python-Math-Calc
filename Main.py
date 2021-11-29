@@ -86,7 +86,10 @@ def findSec(x):
 # function for statistics
 
 def findMean(x):
-    pass
+    temp = 0
+    for i in range(0, len(x)):
+        temp = temp + x[i]
+    return temp/len(x)
 
 def findMedian(x):
     pass
@@ -115,5 +118,3 @@ def findDefIntegral(x): #Definite Integral
 
 def findDerivative(x):
     pass
-
-# function for linear algebra
