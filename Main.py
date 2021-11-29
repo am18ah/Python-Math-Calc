@@ -110,7 +110,7 @@ def findVar(x):
 
 # function for calculus
 def findIndefIntegral(x,fx): #Indefinite Integral
-    # if f(x) = 2x, 2*x will be passed in
+    # ex: if f(x) = 2x, 2*x will be passed in
     x = sp.Symbol('x')
     sp.integrate(fx,x)
 
