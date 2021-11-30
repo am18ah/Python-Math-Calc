@@ -1,5 +1,11 @@
 import math
+<<<<<<< HEAD
+=======
 import statistics
+<<<<<<< HEAD
+>>>>>>> parent of b703804 (Update Main.py)
+=======
+>>>>>>> parent of b703804 (Update Main.py)
 
 #this will serve as the main page for the functionality
 
@@ -87,13 +93,13 @@ def findSec(x):
 # function for statistics
 
 def findMean(x):
-    return statistics.mean(x)
+    pass
 
 def findMedian(x):
-    return statistics.median(x)
+    pass
 
 def findMode(x):
-    return statistics.mode(x)
+    pass
 
 def findMin(x):
     pass
@@ -102,17 +108,36 @@ def findMax(x):
     pass
 
 def findStdDev(x):
-    statistics.stdev(x)
+    pass
 
 def findVar(x):
-    statistics.variance(x)
+    pass
 
 # function for calculus
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+def findIndefIntegral(x,fx): #Indefinite Integral
+    # ex: if f(x) = 2x, 2*x will be passed in
+    x = sp.Symbol('x')
+    sp.integrate(fx,x)
+=======
 def findIndefIntegral(x): #Indefinite Integral
     pass
+>>>>>>> parent of b703804 (Update Main.py)
+=======
+def findIndefIntegral(x): #Indefinite Integral
+    pass
+>>>>>>> parent of b703804 (Update Main.py)
+=======
+def findIndefIntegral(x): #Indefinite Integral
+    pass
+>>>>>>> parent of b703804 (Update Main.py)
 
 def findDefIntegral(x): #Definite Integral
     pass
 
 def findDerivative(x):
     pass
+
+# function for linear algebra
