@@ -1,6 +1,5 @@
 import math
 import statistics
-import sympy as sp
 
 #this will serve as the main page for the functionality
 
@@ -11,29 +10,29 @@ import sympy as sp
 def Add(x, y):
     if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x+y
-    else:
-        results = str(x) + "+" + str(y)
+    else: 
+        results = str(x) + "+" + str(y)   
         return results
 
 def Sub(x, y):
     if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x-y
-    else:
-        ans = str(x) + "-" + str(y)
+    else: 
+        ans = str(x) + "-" + str(y)   
         return ans
 
 def Multiply(x, y):
     if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x*y
-    else:
-        ans = str(x) + "*" + str(y)
+    else: 
+        ans = str(x) + "*" + str(y)   
         return ans
 
 def Divide(x, y):
     if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x/y
-    else:
-        ans = str(x) + "/" + str(y)
+    else: 
+        ans = str(x) + "/" + str(y)   
         return ans
 
 def power(x,y):
@@ -46,7 +45,7 @@ def power(x,y):
 
 # function for trigonometry
 
-#due to float arithmetic things such as sin(pi) !=
+#due to float arithmetic things such as sin(pi) != 
 #however they are still extremely small numbers could be a way to round it
 #for better user experience
 
@@ -109,10 +108,15 @@ def findVar(x):
     statistics.variance(x)
 
 # function for calculus
+<<<<<<< HEAD
 def findIndefIntegral(x,fx): #Indefinite Integral
     # ex: if f(x) = 2x, 2*x will be passed in
     x = sp.Symbol('x')
     sp.integrate(fx,x)
+=======
+def findIndefIntegral(x): #Indefinite Integral
+    pass
+>>>>>>> parent of b703804 (Update Main.py)
 
 def findDefIntegral(x): #Definite Integral
     pass
