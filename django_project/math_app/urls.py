@@ -9,5 +9,4 @@ urlpatterns = [
     path('register/', views.register_request, name='math-register'),
     path('about/', views.about, name='math-about'),
     path('login/', views.login, name='math-login'),
-    
     ]
