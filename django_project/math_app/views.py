@@ -30,7 +30,6 @@ def login(request):
                 messages.error(request,"Invalid username or password.")
     form = AuthenticationForm()
     return render(request=request, template_name="math_app/login.html", context={"login_form":form})
-        #return render(request, 'math_app/login.html', {'title': 'Login'})
 
 def register_request(request):
     if request.method == "POST":
