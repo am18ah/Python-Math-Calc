@@ -2,6 +2,9 @@ import math
 <<<<<<< HEAD
 =======
 import statistics
+<<<<<<< HEAD
+>>>>>>> parent of b703804 (Update Main.py)
+=======
 >>>>>>> parent of b703804 (Update Main.py)
 
 #this will serve as the main page for the functionality
@@ -113,10 +116,15 @@ def findVar(x):
 # function for calculus
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def findIndefIntegral(x,fx): #Indefinite Integral
     # ex: if f(x) = 2x, 2*x will be passed in
     x = sp.Symbol('x')
     sp.integrate(fx,x)
+=======
+def findIndefIntegral(x): #Indefinite Integral
+    pass
+>>>>>>> parent of b703804 (Update Main.py)
 =======
 def findIndefIntegral(x): #Indefinite Integral
     pass
