@@ -3,7 +3,7 @@ import statistics
 
 #this will serve as the main page for the functionality
 
-# use Django to create web interface
+# use Django to create web interfacee
 
 # function for basic math
 
