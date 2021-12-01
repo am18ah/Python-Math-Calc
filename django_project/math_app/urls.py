@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-urlpatterns = [
+urlpatterns = [ 
     path('', views.home, name='math-home'),
     path('register/', views.register_request, name='math-register'),
     path('about/', views.about, name='math-about'),

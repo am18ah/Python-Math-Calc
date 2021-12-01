@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 
-
+ 
 def home(request):
     return render(request, 'math_app/home.html')
 
