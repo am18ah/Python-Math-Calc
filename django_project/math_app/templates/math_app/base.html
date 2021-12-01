@@ -33,12 +33,9 @@
 				Courses
 				</button>
 				  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-				    <li><a class="dropdown-item" href="#">Basic Math</a></li>
-				    <li><a class="dropdown-item" href="#">Pre-Algebra</a></li>
-				    <li><a class="dropdown-item" href="#">Algebra</a></li>
-				    <li><a class="dropdown-item" href="#">Trigonometry</a></li>
-				    <li><a class="dropdown-item" href="#">Precalculus</a></li>
-				    <li><a class="dropdown-item" href="#">Calculus</a></li>
+				    <li><a class="dropdown-item" href="{% url 'basic-math' %}">Basic Math</a></li>
+				    <li><a class="dropdown-item" href="{% url 'trigonometry' %}">Trigonometry</a></li>
+				    <li><a class="dropdown-item" href="{% url 'algebra' %}">Algebra</a></li>
 				  </ul>
 			</div>
 	        <div class="navbar-nav mr-auto">

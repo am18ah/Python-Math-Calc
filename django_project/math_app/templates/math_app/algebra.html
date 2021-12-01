@@ -1,0 +1,52 @@
+{% extends "math_app/base.html" %}
+{% block content %}
+	<div style = "position:relative; top:150px; left:10%; height:100%; width:100%">
+      <h2>Algebra</h2>
+      <h>Compute an algebra problem</h>
+      <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:80%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
+		<style>input {width:8%; min-height: 50px;}</style>
+		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
+				<div class="keyboard_holder">
+					<div id="keyboard_math" class="keyboard_math_left">
+						<input type="button" styleclass="letter" value="(">
+							<input type="button" class="letter" value=")">
+							<input type="button" class="letter" value="|">
+							<input type="button" class="letter" value="[">
+							<input type="button" class="letter" value="]">
+							<input type="button" class="letter" value="/">
+							<input type="button" class="letter" value="&ge;">
+							<input type="button" class="letter" value="&le;">
+							<input type="button" class="letter" value="<">
+							<input type="button" class="letter" value=">">
+							<input type="button" class="letter" value="^">
+							<input type="button" class="letter" value="=">
+							<input type="button" class="letter" value="1">
+							<input type="button" class="letter" value="2">
+							<input type="button" class="letter" value="3">
+							<input type="button" class="letter" value="4">
+							<input type="button" class="letter" value="5">
+							<input type="button" class="letter" value="6">
+							<input type="button" class="letter" value="7">
+							<input type="button" class="letter" value="8">
+							<input type="button" class="letter" value="9">
+							<input type="button" class="letter" value="0">
+							<input type="button" class="letter" value="+">
+							<input type="button" class="letter" value="-">
+							<input type="button" class="letter" value="&times;">
+							<input type="button" class="letter" value="&divide;">
+							<input type="button" class="letter" value=".">
+							<input type="button" class="letter" value="log">
+							<input type="button" class="letter" value="ln">
+							<input type="button" class="letter" value="e">
+							<input type="button" class="letter" value="i">
+							<input type="button" class="letter" value="&pi;">
+							<input type="button" class="letter" value="&radic;">
+							</div>
+						</div>
+	</div>
+					</div>
+					<div style=" position: relative; top:200px; left:80%;">
+						 <button class="btn btn-primary" type="submit">Evaluate</button>
+					</div>
+
+{% endblock content %}

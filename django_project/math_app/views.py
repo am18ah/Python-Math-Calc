@@ -9,9 +9,17 @@ from django.contrib.auth.forms import AuthenticationForm
 def home(request):
     return render(request, 'math_app/home.html')
 
-
 def about(request):
     return render(request, 'math_app/about.html', {'title': 'About'})
+
+def basicmath(request):
+    return render(request, 'math_app/basicmath.html', {'title': 'Basic Math'})
+
+def trigonometry(request):
+    return render(request, 'math_app/trigonometry.html', {'title': 'Trigonometry'})
+
+def algebra(request):
+    return render(request, 'math_app/algebra.html', {'title': 'Algebra'})
 
 def login(request):
     if request.method == "POST":
