@@ -1,8 +1,9 @@
 {% extends "math_app/base.html" %}
-{% block content %} 
+{% block content %}
 	<div style = "position:relative; top:100px; left:10%; height:100%; width:100%">
       <h2>Basic Math</h2>
       <h>Compute a basic math problem</h><br><br>
+      <hr style="height:2px;border-width:0;color:gray;background-color:gray">
       <br><h>Enter a number:</h><br>
       <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
       <style>input {width:8%; min-height: 50px;}</style>
@@ -21,8 +22,11 @@
                   <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
 	              </div>
 					</div>
-					<div style=" position: relative; top:150px; left:50%;">
+					<div style=" position: relative; top:125px; left:50%;">
 						 <button class="btn btn-primary" type="submit">Evaluate</button>
 					</div>
+               <div style = "position:relative; top:150px; left:10%; height:100%; width:100%">
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray"> </div>
+
 
 {% endblock content %}
