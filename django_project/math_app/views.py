@@ -29,6 +29,8 @@ def history(request):
 
 def register(request):
     if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
             username = request.POST.get('username')
             email = request.POST.get('email')
             pass1 = request.POST.get('pass1')
@@ -40,6 +42,10 @@ def register(request):
             messages.success(request, "Your account has been successfully created")
 
             return redirect("http://127.0.0.1:8000/login/")
+
+        else:
+            messages.error(request, "Username is already in use")
+            form = NewUserForm() 
     return render (request, "math_app/register.html")
 
 def user_login(request):
