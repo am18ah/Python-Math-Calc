@@ -1,8 +1,15 @@
 import math
+<<<<<<< HEAD
+=======
+import statistics
+<<<<<<< HEAD
+>>>>>>> parent of b703804 (Update Main.py)
+=======
+>>>>>>> parent of b703804 (Update Main.py)
 
 #this will serve as the main page for the functionality
 
-# use Django to create web interface
+# use Django to create web interfacee
 
 # function for basic math
 
@@ -86,7 +93,10 @@ def findSec(x):
 # function for statistics
 
 def findMean(x):
-    pass
+    temp = 0
+    for i in range(0, len(x)):
+        temp = temp + x[i]
+    return temp/len(x)
 
 def findMedian(x):
     pass
@@ -107,13 +117,28 @@ def findVar(x):
     pass
 
 # function for calculus
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+def findIndefIntegral(x,fx): #Indefinite Integral
+    # ex: if f(x) = 2x, 2*x will be passed in
+    x = sp.Symbol('x')
+    sp.integrate(fx,x)
+=======
 def findIndefIntegral(x): #Indefinite Integral
     pass
+>>>>>>> parent of b703804 (Update Main.py)
+=======
+def findIndefIntegral(x): #Indefinite Integral
+    pass
+>>>>>>> parent of b703804 (Update Main.py)
+=======
+def findIndefIntegral(x): #Indefinite Integral
+    pass
+>>>>>>> parent of b703804 (Update Main.py)
 
 def findDefIntegral(x): #Definite Integral
     pass
 
 def findDerivative(x):
     pass
-
-# function for linear algebra
