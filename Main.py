@@ -1,15 +1,10 @@
 import math
-<<<<<<< HEAD
-=======
 import statistics
-<<<<<<< HEAD
->>>>>>> parent of b703804 (Update Main.py)
-=======
->>>>>>> parent of b703804 (Update Main.py)
+import numpy
 
 #this will serve as the main page for the functionality
 
-# use Django to create web interfacee
+# use Django to create web interface
 
 # function for basic math
 
@@ -28,26 +23,26 @@ def Sub(x, y):
         return ans
 
 def Multiply(x, y):
-    if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x*y
-    else: 
-        ans = str(x) + "*" + str(y)   
-        return ans
 
 def Divide(x, y):
-    if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x/y
-    else: 
-        ans = str(x) + "/" + str(y)   
-        return ans
 
-def power(x,y):
-    if isinstance(x, (int, float)) and isinstance(y, (int, float)):
-        return math.pow(x,y)
+def Power(x,y):
+        return x ** y
+
+def Root(x, y = 2):
+    if y == 2:
+        return math.sqrt(2)     #square root
     else:
-        ans = str(x)+"^"+str(y)
-        return ans
+        return x ** (1/y)       #root y
+
 # function for pre-calculus
+
+def findLog(x, y = 10):
+    return math.log(x, y)
+def findln(x):
+    return math.log(x)  #no base specification defaults to base e (ln)
 
 # function for trigonometry
 
@@ -56,86 +51,52 @@ def power(x,y):
 #for better user experience
 
 def findSin(x):
-    if isinstance(x, (int, float)):
         return math.sin(x)
-    else:
-        ans = "sin(" + str(x) +")"
-        return ans
 
 def findCos(x):
-    if isinstance(x, (int, float)):
         return math.cos(x)
-    else:
-        ans = "cos(" + str(x) +")"
-        return ans
 
 def findTan(x):
-    if isinstance(x, (int, float)):
         return math.tan(x)
-    else:
-        ans = "tan(" + str(x) +")"
-        return ans
 
 def findCsc(x):
-    if isinstance(x, (int, float)):
         return (1/math.sin(x))
-    else:
-        ans = "csc(" + str(x) +")"
-        return ans
 
 def findSec(x):
-    if isinstance(x, (int, float)):
         return (1/math.cos(x))
-    else:
-        ans = "sec(" + str(x) +")"
-        return ans
+
+def getPi():
+    return numpy.pi
 
 # function for statistics
 
 def findMean(x):
-    temp = 0
-    for i in range(0, len(x)):
-        temp = temp + x[i]
-    return temp/len(x)
+    return statistics.mean(x)
 
 def findMedian(x):
-    pass
+    return statistics.median(x)
 
 def findMode(x):
-    pass
+    return statistics.mode(x)
 
 def findMin(x):
-    pass
+    return numpy.min(x)
 
 def findMax(x):
-    pass
+    return numpy.max(x)
+
+def findRange(x):
+    return numpy.max(x) - numpy.min(x)
 
 def findStdDev(x):
-    pass
+    statistics.stdev(x)
 
 def findVar(x):
-    pass
+    statistics.variance(x)
 
 # function for calculus
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-def findIndefIntegral(x,fx): #Indefinite Integral
-    # ex: if f(x) = 2x, 2*x will be passed in
-    x = sp.Symbol('x')
-    sp.integrate(fx,x)
-=======
 def findIndefIntegral(x): #Indefinite Integral
     pass
->>>>>>> parent of b703804 (Update Main.py)
-=======
-def findIndefIntegral(x): #Indefinite Integral
-    pass
->>>>>>> parent of b703804 (Update Main.py)
-=======
-def findIndefIntegral(x): #Indefinite Integral
-    pass
->>>>>>> parent of b703804 (Update Main.py)
 
 def findDefIntegral(x): #Definite Integral
     pass
