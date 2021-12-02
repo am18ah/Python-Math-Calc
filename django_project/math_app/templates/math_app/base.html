@@ -40,13 +40,28 @@
 				  </ul>
 			</div>
 	        <div class="navbar-nav mr-auto">
-	          <a class="nav-item nav-link" href="{% url 'math-about' %}">About</a>
+	          	<a class="nav-item nav-link" href="{% url 'math-about' %}">About</a>
 	        </div>
-	        <!-- Navbar Right Side -->
-	        <div class="navbar-nav">
-	          <a class="nav-item nav-link" href="{% url 'math-login' %}">Login</a>
-	          <a class="nav-item nav-link" href="{% url 'math-register' %}">Register</a>
-	        </div>
+
+	        {% for message in messages %}
+	        	<strong>Message:</strong>{{message}}
+	        {% endfor %}
+
+
+	        {% if user.is_authenticated %}
+				<div class="navbar-nav mr-auto">
+	          		<div style="position:relative; right:230px;"><a class="nav-item nav-link" href="{% url 'math-history' %}">History</a></div>
+	        	</div>
+	        	<div class="navbar-nav">
+	        		<a class="nav-item nav-link" href="{% url 'math-signout' %}">Log Out</a></button>
+	        	</div>
+	        {% else %}
+	        	<div class="navbar-nav">
+	        	 	<a class="nav-item nav-link" href="{% url 'math-login' %}">Login</a>
+	         	 	<a class="nav-item nav-link" href="{% url 'math-register' %}">Register</a>
+				</div>
+	        {% endif %}
+
 	      </div>
 	    </div>
 	  </nav>

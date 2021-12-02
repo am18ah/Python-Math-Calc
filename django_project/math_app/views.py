@@ -2,8 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import  render, redirect
 from .forms import NewUserForm
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request, 'math_app/home.html')
@@ -23,32 +24,43 @@ def algebra(request):
 def statistics(request):
     return render(request, 'math_app/statistics.html', {'title': 'Statistics'})
 
-def login(request):
-    if request.method == "POST":
-            form = AuthenticationForm(request, data=request.POST)
-            if form.is_valid():
-                username = form.cleaned_data.get('username')
-                password = form.cleaned_data.get('password')
-                user = authenticate(username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    messages.info(request, f"You are now logged in as {username}.")
-                    return redirect("main:homepage")
-                else:
-                    messages.error(request,"Invalid username or password.")
-            else:
-                messages.error(request,"Invalid username or password.")
-    form = AuthenticationForm()
-    return render(request=request, template_name="math_app/login.html", context={"login_form":form})
+def history(request):
+    return render(request, 'math_app/history.html', {'title': 'Statistics'})
 
-def register_request(request):
+def register(request):
     if request.method == "POST":
-        form = NewUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            messages.success(request, "Registration successful." )
-            return redirect("main:homepage")
-        messages.error(request, "Unsuccessful registration. Invalid information.")
-    form = NewUserForm()
-    return render (request=request, template_name="math_app/register.html", context={"register_form":form})
+            username = request.POST.get('username')
+            email = request.POST.get('email')
+            pass1 = request.POST.get('pass1')
+            pass2 = request.POST.get('pass2')
+
+            user = User.objects.create_user(username, email, pass1)
+            user.save()
+
+            messages.success(request, "Your account has been successfully created")
+
+            return redirect("http://127.0.0.1:8000/login/")
+    return render (request, "math_app/register.html")
+
+def user_login(request):
+    if request.method == "POST":
+            username = request.POST.get('username')
+            pass1 = request.POST.get('pass1')
+
+            user = authenticate(username=username, password=pass1)
+
+            if user is not None:
+                    login(request, user)
+                    return redirect("http://127.0.0.1:8000/")
+            else:
+                    messages.error(request, "User does not exist")
+
+    return render (request, "math_app/login.html")
+
+
+def signout(request):
+    logout(request)
+    messages.success(request, "Logged out successfully")
+    return redirect("http://127.0.0.1:8000/")
+
+
