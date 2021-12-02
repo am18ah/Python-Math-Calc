@@ -3,14 +3,13 @@ import Main as test
 import math
 
 L1 = [1, 2, 3, 4, 5]
-L2 = [1, 2, 4, 4, 5]
-print (test.Add(3, 'x'))
-print(test.findSin(math.pi)) 
+L2 = [1, 2, 4, 4, 5] 
 print(test.Power(3,2))
 
 print("Testing Trig: ")
-print(test.findSin(math.pi)) 
-print(test.findCos(0))
+print(test.findSin(math.pi, 'R')) 
+print(test.findCos(0, 'R'))
+print(test.findCos(90, 'D'))
 
 print("Testing Stats: ")
 print(test.findMin(L1))
