@@ -1,23 +1,28 @@
 {% extends "math_app/base.html" %}
 {% block content %}
-	<div style = "position:relative; top:150px; left:10%; height:100%; width:100%">
-      <h1>Welcome to the Math Calculator!</h1>
-      <h4> ★ Select a course from the drop down menu above to get started.</h4>
-      <br><h4> ★ Click on the "About" tab to learn more about us.</h4>
-      <br><h4> ★ Create an account and sign in to save to save your calculation history.</h4>
-
-      <br><h2>Feeling stuck?</h2>
+	<div style = "position:relative; top:100px;">
+        <h1>Welcome to the Math Calculator!</h1>
+        <br>
+        <h6> ★ Select a course from the drop down menu above to get started.</h6>
+        <div style = "position:relative; top:10px;">
+            <h6> ★ Click on the "About" tab to learn more about us.</h6>
+        </div>
+        <div style = "position:relative; top:20px;">
+            <h6> ★ Create an account and sign in to save to save your calculation history.</h6>
+        </div>
+      <br><br><h3>Feeling stuck?</h3>
       <p>
-      {% load static %} <img src="{% static "math_app/media/math1.jpeg" %}" alt="Math1"/>
+      {% load static %} <img src="{% static "math_app/media/math1.png" %}" alt="Math1"/>
       </p>
-      <br><h2>We can help!</h2>
-      {% load static %} <img src="{% static "math_app/media/math2.jpeg" %}" alt="Math1"/>
+      <br><h3>We can help!</h3>
+      {% load static %} <img src="{% static "math_app/media/math2.png" %}" alt="Math1"/>
+<br><br>
+    <!--div style = "position:relative; top:10px;"-->
+      <h3> Our Goals </h3>
+      The goal of the Math Calculator is to make quality on-demand math assistance accessible to everybody. The Math Calculator long-term creative goal is to deliver increasing features and functionality over the years to come.
+    <!--/div-->
 
-      <h2> Our Goals </h2>
-      <br><h4>The goal of the Math Calculator is to make quality on-demand math assistance accessible to everybody. The Math Calculator long-term creative goal is to deliver increasing features and functionality over the years to come.<h4>
-
-
-      <br><br>
+      <br><br><br>
 
 	</div>
 

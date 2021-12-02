@@ -13,6 +13,7 @@ urlpatterns = [
     path('basicmath/', views.basicmath, name='basic-math'),
     path('trigonometry/', views.trigonometry, name='trigonometry'),
     path('algebra/', views.algebra, name='algebra'),
+    path('statistics/', views.statistics, name='statistics'),
     ]
 
 urlpatterns += staticfiles_urlpatterns()
