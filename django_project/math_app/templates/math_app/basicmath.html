@@ -1,10 +1,10 @@
 {% extends "math_app/base.html" %}
 {% block content %}
-	<div style = "position:relative; top:90px; ">
+	<div style = "position:relative; top:100px; left:10%; height:100%; width:100%">
       <h2>Basic Math</h2>
       <h>Compute a basic math problem</h><br><br>
-      <h>Enter a number:</h><br>
-      <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:21%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
+      <br><h>Enter a number:</h><br>
+      <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
       <style>input {width:8%; min-height: 50px;}</style>
 
 		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
@@ -18,10 +18,10 @@
 							</div>
 						</div>
                   <br><h>Enter a number:</h><br>
-                  <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:25%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
+                  <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
 	              </div>
 					</div>
-					<div style=" position: relative; top:100px;">
+					<div style=" position: relative; top:150px; left:50%;">
 						 <button class="btn btn-primary" type="submit">Evaluate</button>
 					</div>
 
