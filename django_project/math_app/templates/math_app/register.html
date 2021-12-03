@@ -7,9 +7,19 @@
 	
 		<h2>Register</h2>
 	
-	<form method="POST">
+	<form action="/register/" method="POST">
 		{% csrf_token %}
-		{{ register_form|crispy }}                    
+		<label for="">Username*</label><br>
+		<input type="text" id="username" name="username" Required><br>
+		<label>Required. 15 characters or fewer. Letters and digits only.</label><br><br>
+		<label for="">Email*</label><br>
+		<input type="email" id="email" name="email" Required><br>
+		<label for="">Password*</label><br>
+		<input type="password" id="pass1" name="pass1" Required><br>
+		<label>Your password must contain at least 8 characters.</label><br><br>
+		<label for="">Password Confirmation*</label><br>
+		<input type="password" id="pass2" name="pass2" Required><br><br> 
+
 		<button class="btn btn-primary" type="submit">Register</button>
 	</form>
 	<p class="text-center">If you already have an account, <a href="{% url 'math-login' %}">login</a> instead.</p>

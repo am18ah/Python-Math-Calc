@@ -1,0 +1,28 @@
+{% extends "math_app/base.html" %}
+{% block content %}
+	<div style = "position:relative; top:90px; ">
+      <h2>Basic Math</h2>
+      <h>Compute a basic math problem</h><br><br>
+      <h>Enter a number:</h><br>
+      <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:21%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
+      <style>input {width:8%; min-height: 50px;}</style>
+
+		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
+         <br><h>Select operation:</h>
+            <div class="keyboard_holder">
+					<div id="keyboard_math" class="keyboard_math_left">
+						<input type="button" styleclass="letter" value="*">
+							<input type="button" class="letter" value="/">
+							<input type="button" class="letter" value="+">
+							<input type="button" class="letter" value="-">
+							</div>
+						</div>
+                  <br><h>Enter a number:</h><br>
+                  <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:25%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
+	              </div>
+					</div>
+					<div style=" position: relative; top:100px;">
+						 <button class="btn btn-primary" type="submit">Evaluate</button>
+					</div>
+
+{% endblock content %}

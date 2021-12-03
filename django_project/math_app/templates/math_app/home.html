@@ -1,51 +1,29 @@
 {% extends "math_app/base.html" %}
 {% block content %}
-	<div style = "position:relative; top:350px; left:10%; height:100%; width:100%">
-		<textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:80%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
-		<style>input {width:8%; min-height: 50px;}</style>
-		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
-				<div class="keyboard_holder">
-					<div id="keyboard_math" class="keyboard_math_left">
-						<input type="button" styleclass="letter" value="(">
-							<input type="button" class="letter" value=")">
-							<input type="button" class="letter" value="|">
-							<input type="button" class="letter" value="[">
-							<input type="button" class="letter" value="]">
-							<input type="button" class="letter" value="/">
-							<input type="button" class="letter" value="&ge;">
-							<input type="button" class="letter" value="&le;">
-							<input type="button" class="letter" value="<">
-							<input type="button" class="letter" value=">">
-							<input type="button" class="letter" value="^">
-							<input type="button" class="letter" value="=">
-							<input type="button" class="letter" value="1">
-							<input type="button" class="letter" value="2">
-							<input type="button" class="letter" value="3">
-							<input type="button" class="letter" value="4">
-							<input type="button" class="letter" value="5">
-							<input type="button" class="letter" value="6">
-							<input type="button" class="letter" value="7">
-							<input type="button" class="letter" value="8">
-							<input type="button" class="letter" value="9">
-							<input type="button" class="letter" value="0">
-							<input type="button" class="letter" value="+">
-							<input type="button" class="letter" value="-">
-							<input type="button" class="letter" value="&times;">
-							<input type="button" class="letter" value="&divide;">
-							<input type="button" class="letter" value=".">
-							<input type="button" class="letter" value="log">
-							<input type="button" class="letter" value="ln">
-							<input type="button" class="letter" value="e">
-							<input type="button" class="letter" value="i">
-							<input type="button" class="letter" value="&pi;">
-							<input type="button" class="letter" value="&radic;">
-							</div>
-						</div>
+	<div style = "position:relative; top:90px;">
+        <h1>Welcome to the Math Calculator!</h1>
+        <br>
+        <h5> ★ Select a course from the drop down menu above to get started.</h5>
+        <div style = "position:relative; top:10px;">
+            <h5> ★ Click on the "About" tab to learn more about us.</h5>
+        </div>
+        <div style = "position:relative; top:20px;">
+            <h5> ★ Create an account and sign in to save to save your calculation history.</h5>
+        </div>
+        <br>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+        <br><br><h3>Feeling stuck?</h3>
+        <p>
+        {% load static %} <img src="{% static "math_app/media/math1.png" %}" alt="Math1"/>
+        </p>
+        <br><h3>We can help!</h3>
+        {% load static %} <img src="{% static "math_app/media/math2.png" %}" alt="Math2"/>
+        <br><br>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+        <h3> Our Goals </h3>
+        The goal of the Math Calculator is to make quality on-demand math assistance accessible to everybody. The Math Calculator long-term creative goal is to deliver increasing features and functionality over the years to come.
+      <br><br><br>
+
 	</div>
-					</div>
-					<div style=" position: relative; top:360px; left:80%;">
-						 <button class="btn btn-primary" type="submit">Evaluate</button>
-					</div>
 
 {% endblock content %}
-
