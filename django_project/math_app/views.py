@@ -84,3 +84,24 @@ def signout(request):
     return redirect("http://127.0.0.1:8000/")
 
 
+<<<<<<< HEAD
+=======
+def register_request(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful." )
+            return redirect("main:homepage")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render (request=request, template_name="math_app/register.html", context={"register_form":form})
+
+def calculation(request):
+    if request.method=="POST":
+        values=request.POST['text_input']
+        print(values)
+        return render(request=request, template_name='math_app/home.html', context={'result': 69})
+    return render(request=request,template_name='math_app/home.html', context={'result' : 69})
+>>>>>>> origin/Wes
