@@ -77,7 +77,7 @@ def findMedian(x):
     return statistics.median(x)
 
 def findMode(x):
-    return statistics.mode(x)
+    return statistics.multimode(x)
 
 def findMin(x):
     return numpy.min(x)
