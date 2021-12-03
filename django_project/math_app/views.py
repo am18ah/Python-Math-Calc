@@ -4,6 +4,8 @@ from .forms import NewUserForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
+import math
+
 
 def home(request):
     return render(request, 'math_app/home.html')
@@ -20,9 +22,34 @@ def trigonometry(request):
 def algebra(request):
     if request.method=="POST":
         values=request.POST['text_input']
-        val = eval(values)
-        return render(request=request, template_name='math_app/algebra.html', context={'ans': val})
-
+        sub1 = 'log('
+        sub2 = 'ln('
+        sub3 = ''
+        val = ''
+        try:
+            if values is not None and sub1 in values:
+                for i in range(4, len(values)):
+                    val += values[i]
+                if val is None:
+                    ans = math.log10(1)
+                    return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+                else:
+                    ans = math.log10(int(val))
+                return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+            elif values is not None and sub2 in values:
+                for i in range(3, len(values)):
+                    val += values[i]
+                if val is None:
+                    ans = math.log1p(1)
+                    return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+                else:
+                    ans = math.log1p(int(val))
+                    return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+            else:
+                val = eval(values)
+                return render(request=request, template_name='math_app/algebra.html', context={'ans': val})
+        except:
+            return render(request=request, template_name='math_app/algebra.html', context={'ans': 'Error'})
     return render(request, 'math_app/algebra.html', {'title': 'Algebra'})
 
 def statistics(request):
