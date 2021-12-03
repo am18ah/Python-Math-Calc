@@ -1,6 +1,6 @@
 {% extends "math_app/base.html" %}
 {% block content %}
-	<form style = "position:relative; top:90px;">
+	<form style = "position:relative; top:90px;" action="calculation" method="post" class="">
       <h2>Algebra</h2> 
       <h>Compute an algebra problem</h>
 
@@ -22,7 +22,7 @@
 							<input type="button" class="letter" onclick="insertTextInInputValue('<');"value="<">
 							<input type="button" class="letter" onclick="insertTextInInputValue('>');"value=">">
 							<input type="button" class="letter" onclick="insertTextInInputValue('^');"value="^">
-							<input type="submit" class="letter" value="=">
+							<input type="button" class="letter" onclick="insertTextInInputValue('=');"value="=">
                             <input type="button" class="letter" onclick="insertTextInInputValue(1);"value="1"></input>
                             <input type="button" class="letter" onclick="insertTextInInputValue(2);"value="2"></input>
 							<input type="button" class="letter" onclick="insertTextInInputValue(3);"value="3">
@@ -42,7 +42,7 @@
 							<input type="button" class="letter" onclick="insertTextInInputValue('ln(');"value="ln">
 							<input type="button" class="letter" onclick="insertTextInInputValue('e');"value="e">
 							<input type="button" class="letter" onclick="insertTextInInputValue('i');"value="i">
-							<input type="button" class="letter" onclick="insertTextInInputValue('u\03C0');"value="&pi;">
+							<input type="button" class="letter" onclick="insertTextInInputValue('pi');"value="&pi;">
 							<input type="button" class="letter" onclick="insertTextInInputValue('sqrt(');"value="&radic;">
 						</div>
 				</div>
@@ -54,5 +54,15 @@
 </div>
 
 	</form>
+
+<script type="text/javascript">
+  function insertTextInInputValue(buttonValueIs){
+              var inputElementIs = document.getElementById("canvasId");
+              inputElementIs.value =  inputElementIs.value + buttonValueIs;
+              $('#canvasId').val(inputElementIs.value);
+
+  }
+
+  </script>
 </div>
 {% endblock content %}
