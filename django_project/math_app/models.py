@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+
 class Equation(models.Model):
 	type_of_math = models.CharField(max_length=15)	
 	math = models.TextField(max_length=100)
