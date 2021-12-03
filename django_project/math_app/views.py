@@ -37,19 +37,19 @@ def register(request):
         if User.objects.filter(username=username):
             messages.error(request, "Username already exists")
             return redirect("http://127.0.0.1:8000/register/")
-
-        if User.objects.filter(email=email):
+        elif User.objects.filter(email=email):
             messages.error(request, "Email already in use, try signing in instead")
             return redirect("http://127.0.0.1:8000/login/")
-        if len(username) > 15:
-            messages.error(request, "Username must be under 15 characters")
+        elif len(username) > 15:
+            messages.error(request, "Invald username")
             return redirect("http://127.0.0.1:8000/register/")
-        if len(pass1) < 8:
-            messages.error(request, "Username must be under 15 characters") 
-        if pass1 != pass2:
+        elif len(pass1) < 8:
+            messages.error(request, "Password must be under 15 characters") 
+            return redirect("http://127.0.0.1:8000/register/")
+        elif pass1 != pass2:
             messages.error(request, "Passwords do not match")
             return redirect("http://127.0.0.1:8000/register/")
-        if not username.isalnum():
+        elif not username.isalnum():
             messages.error(request, "Username must be alpha numeric")
             return redirect("http://127.0.0.1:8000/register/") 
         
