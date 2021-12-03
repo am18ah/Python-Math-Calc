@@ -1,32 +1,69 @@
 {% extends "math_app/base.html" %}
 {% block content %}
+<<<<<<< Updated upstream
 	<div style = "position:relative; top:100px; left:10%; height:100%; width:100%">
+=======
+   <form style="position:relative; top:90px;" action="" method="post" class="">
+      {% csrf_token %}
+
+>>>>>>> Stashed changes
       <h2>Trigonometry</h2>
       <h>Compute a basic trigonometry problem</h><br><br>
       <hr style="height:2px;border-width:0;color:gray;background-color:gray">
       <h3>Solve in degrees</h3>
       <br><h>Enter a number in degrees:</h><br>
 
+<<<<<<< Updated upstream
       <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="num_deg"></textarea><span style="margin-left:20px; font-size:24px;">deg</span>
+=======
+	   <div style = "position:relative; top: 90px;">
+
+      <h3>Solve in degrees</h3>
+      <h>Enter a number in degrees:</h><br>
+
+      <textarea type="number" id="field1" name="num" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;"></textarea><span style="margin-left:20px;">deg</span>
+>>>>>>> Stashed changes
       <style>input {width:8%; min-height: 50px;}</style>
 
 		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
          <br><h>Select operation:</h>
             <div class="keyboard_holder">
 					<div id="keyboard_math" class="keyboard_math_left">
-						<input type="button" styleclass="letter" value="sin">
-							<input type="button" class="letter" value="cos">
-							<input type="button" class="letter" value="tan">
-                     <input type="button" class="letter" value="cot">
-							<input type="button" class="letter" value="sec">
-                     <input type="button" class="letter" value="csc">
-							</div>
+						<input type="button" name="sin" onclick="displayNumber(sin)" styleclass="letter" value="sin">
+							<input type="button" name="cos" class="letter" onclick=displayNumber() value="cos">
+							<input type="button" name="tan" class="letter" onclick=displayNumber() value="tan">
+                     <input type="button" name="cot" class="letter" onclick=displayNumber() value="cot">
+							<input type="button" name="sec" class="letter" onclick=displayNumber() value="sec">
+                     <input type="button" name="csc" class="letter" onclick=displayNumber() value="csc">
+                     </div>
 						</div>
 	              </div>
+<<<<<<< Updated upstream
 					</div>
 					<div style=" position: relative; top:100px; left:80%;">
 						 <button class="btn btn-primary" type="submit">Evaluate</button>
                 </div>
+=======
+
+               <br><h2>Answer:</h2><br>
+                     <textarea id="field2" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="num_deg" placeholder={{ans}}></textarea><span style="margin-left:20px;">deg</span>
+
+                   <script>
+                      function displayNumber() {
+                        document.getElementById("field2").value ={{ans}};
+                      }
+                   </script>
+
+   </form>
+
+   <script type="text/javascript">
+      function insertTextInInputValue(buttonValueIs){
+         var inputElementIs = document.getElementById("field1");
+         inputElementIs.value = inputElementIs.value + buttonValueIs;
+         $('#field1').val(inputElementIs.value)
+      }
+      </script>
+>>>>>>> Stashed changes
 
 	 <div style = "position:relative; top:50px; left:10%; height:100%; width:100%">
       <br><br><br>
@@ -42,7 +79,7 @@
            <div class="keyboard_holder">
                <div id="keyboard_math" class="keyboard_math_left">
                   <input type="button" styleclass="letter" value="sin">
-                     <input type="button" class="letter" value="cos">
+                     <input type="button" class="letter" value="cos" on>
                      <input type="button" class="letter" value="tan">
                      <input type="button" class="letter" value="cot">
                      <input type="button" class="letter" value="sec">
@@ -50,8 +87,13 @@
                      </div>
                   </div>
                  </div>
+<<<<<<< Updated upstream
                </div>
                <div style=" position: relative; top:80px; left:80%;">
+=======
+
+               <div style=" position: relative; top:15px;">
+>>>>>>> Stashed changes
                   <button class="btn btn-primary" type="submit">Evaluate</button>
                </div>
 
