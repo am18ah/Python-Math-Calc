@@ -1,8 +1,16 @@
 {% extends "math_app/base.html" %}
 {% block content %}
-	<div style = "position:relative; top:90px;">
+    <div style = "position:relative; top:90px;">
         <h2>Math Calculator History: {{user}}</h2>
+        <style type="text/css">
+            dummydeclaration { padding-left: 4em; }
+            tab { padding-left: 6em; }
+        </style>
+        {% for item in equation %}
+            <h7>{{item.type_of_math}}<tab></tab></h7>
+            <h7>{{item.math}}<tab></tab></h7>
+            <h7>{{item.time_posted}}<tab></tab></h7><br>
+        {% endfor %}
 
-        
     </div>
 {% endblock content %}

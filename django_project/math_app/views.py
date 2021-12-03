@@ -1,11 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import  render, redirect
-from .forms import NewUserForm
+
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from .mathfunctions import *
+from .models import Equation
 
 def home(request):
     return render(request, 'math_app/home.html')
@@ -20,11 +21,14 @@ def trigonometry(request):
     return render(request, 'math_app/trigonometry.html', {'title': 'Trigonometry'})
 
 def algebra(request):
+    equation = Equation()
+    user = User.objects.filter(username='kayleighelmo').first()
+    values = ''
     if request.method=="POST":
         values=request.POST['text_input']
         sub1 = 'log('
         sub2 = 'ln('
-        sub3 = 'e('
+        sub3 = 'e(' 
         sub4 = 'sqrt('
         sub5 = 'pi'
         val = ''
@@ -76,10 +80,18 @@ def algebra(request):
             # Prevents website breaking errors
         except:
             return render(request=request, template_name='math_app/algebra.html', context={'ans': 'Error'})
+    
+    v = list(values.split(" "))
+
+    equation = Equation(type_of_math = "Algebra", math = v, author = user)
+    equation.save()
+
     return render(request, 'math_app/algebra.html', {'title': 'Algebra'})
 
-
 def statistics(request):
+    stats = "statistics"
+    user = User.objects.filter(username='kayleighelmo').first()
+    equation = Equation()
     data = request.POST.get('dataset')
     mean = []
     median = []
@@ -99,14 +111,14 @@ def statistics(request):
         numeric_filter = filter(str.isdigit, li)
         val = " ".join(numeric_filter) 
         nums = list(val.split(" "))
-        print (val)
-        print(li)
+    
+        equation  = Equation(type_of_math = "Statistics", math = val, author = user)
+        equation.save()
+       
         for i in nums:
             if i == '':
-                print("in num")
                 nums = 0
             else:  
-                print("In else")
                 d = [float(x) for x in nums]
                 median = findMean(d)
                 mean = findMedian(d)
@@ -116,12 +128,14 @@ def statistics(request):
                 rangeVal = findRange(d) 
                 var = numpy.var(d)
                 stdDev = numpy.std(d)
-       
+   
     return render(request, 'math_app/statistics.html', {'median':median, 'mean':mean, 'mode':mode, 'maximum':maximum, 'minimum':minimum, 'rangeVal':rangeVal,'stdDev':stdDev, 'var':var})
 
-
 def history(request):
-    return render(request, 'math_app/history.html', {'title': 'Statistics'})
+    #name = request.user
+    #eq = {'equation': request.user.Equation.all()}
+    eq = {'equation':Equation.objects.all()}
+    return render(request, 'math_app/history.html', eq)
 
 def register(request):
     if request.method == "POST":
@@ -185,3 +199,9 @@ def calculation(request):
         print(values)
         return render(request=request, template_name='math_app/home.html', context={'result': 69})
     return render(request=request,template_name='math_app/home.html', context={'result' : 69})
+
+
+
+
+
+
