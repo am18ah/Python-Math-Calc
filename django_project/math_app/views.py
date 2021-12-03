@@ -14,8 +14,37 @@ def about(request):
     return render(request, 'math_app/about.html', {'title': 'About'})
 
 def basicmath(request):
-    return render(request, 'math_app/basicmath.html', {'title': 'Basic Math'})
+    num1 = request.POST.get('num1_input')
+    num2 = request.POST.get('num2_input')
+    add = 0
+    sub = 0
+    mult = 0
+    div = 0
 
+    if num1 == None:
+        num1 = 0
+    if num2 == None:
+        num2 = 0
+
+    isStr1 = isinstance(num1,str)
+    if isStr1 == True:
+        num1 = float(num1)
+
+    isStr2 = isinstance(num2,str)
+    if isStr2 == True:
+       num2 = float(num2)
+
+    add = Add(num1,num2)
+    sub = Sub(num1,num2)
+    mult = Multiply(num1,num2)
+    div = Divide(num1,num2)
+    pow = Power(num1,num2)
+
+
+
+
+
+    return render(request, 'math_app/basicmath.html', {'add':add, 'sub':sub, 'mult':mult, 'div':div, 'pow':pow})
 def trigonometry(request):
     num = request.POST.get('num_input')
 

@@ -26,6 +26,8 @@ def Multiply(x, y):
         return x*y
 
 def Divide(x, y):
+        if y==0:
+            return "Divide by zero error, try again"
         return x/y
 
 def Power(x,y):

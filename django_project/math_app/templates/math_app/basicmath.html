@@ -2,27 +2,49 @@
 {% block content %}
 	<div style = "position:relative; top:90px; ">
       <h2>Basic Math</h2>
-      <h>Compute a basic math problem</h><br><br>
-      <h>Enter a number:</h><br>
-      <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:21%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
-      <style>input {width:8%; min-height: 50px;}</style>
+       <div style = "position:relative;">
+          <h>Compute a basic math problem</h><br><br>
+       </div>
+       <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
-		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
-         <br><h>Select operation:</h>
-            <div class="keyboard_holder">
-					<div id="keyboard_math" class="keyboard_math_left">
-						<input type="button" styleclass="letter" value="*">
-							<input type="button" class="letter" value="/">
-							<input type="button" class="letter" value="+">
-							<input type="button" class="letter" value="-">
-							</div>
-						</div>
-                  <br><h>Enter a number:</h><br>
-                  <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:25%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input"></textarea>
-	              </div>
-					</div>
-					<div style=" position: relative; top:100px;">
-						 <button class="btn btn-primary" type="submit">Evaluate</button>
-					</div>
+       <div style="position:relative; top:10px;">
+          <strong><label for="input">Enter two numbers and the calcuator will compute the sum, difference, multiplication, division, and exponentiation of those numbers for you:</label></strong>
+             <form method="post">
+                {% csrf_token %}
+          	   <div style = "position:relative; top:10px">
+                   <br><h6>Enter first number:</h6><br>
+                   <textarea type="number" name="num1_input" id="num1_input" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;"></textarea>
+                </div>
 
+                <div style = "position:relative; top:10px">
+                   <br><h6>Enter second number:</h6><br>
+                   <textarea type="number" name="num2_input" id="num2_input" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;"></textarea>
+                </div>
+
+                 <div style=" position: relative; top: 20px; left:18%;">
+             			<button class="btn btn-primary" type="submit">Evaluate</button>
+             	 </div>
+
+                 <div style="position:relative; top:25px">
+                 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                 <br><h5>Answer:</h5><br>
+            </form>
+
+        <style type="text/css">
+            dummydeclaration { padding-left: 4em; }
+            tab { padding-left: 2em; }
+            tab1{ padding-left: 7em; }
+            tab2{ padding-left: 6em; }
+            tab3{ padding-left: 9em; }
+        </style>
+
+        <h6>Sum (Addition)<tab2>= </tab2>{{add}}</h6>
+        <h6>Difference (Subtraction)<tab>= </tab>{{sub}}</h6>
+        <h6>Multiplication<tab1>= </tab1>{{mult}}</h6>
+        <h6>Division<tab3>= </tab3>{{div}}</h6>
+        <h6>Exponentiation<tab2>= </tab2>{{pow}}</h6>
+
+
+        </div>
+      </div>
 {% endblock content %}
