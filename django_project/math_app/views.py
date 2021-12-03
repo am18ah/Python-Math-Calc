@@ -29,23 +29,37 @@ def history(request):
 
 def register(request):
     if request.method == "POST":
-        form = NewUserForm(request.POST)
-        if form.is_valid():
-            username = request.POST.get('username')
-            email = request.POST.get('email')
-            pass1 = request.POST.get('pass1')
-            pass2 = request.POST.get('pass2')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        pass1 = request.POST.get('pass1')
+        pass2 = request.POST.get('pass2')
 
-            user = User.objects.create_user(username, email, pass1)
-            user.save()
+        if User.objects.filter(username=username):
+            messages.error(request, "Username already exists")
+            return redirect("http://127.0.0.1:8000/register/")
 
-            messages.success(request, "Your account has been successfully created")
-
+        if User.objects.filter(email=email):
+            messages.error(request, "Email already in use, try signing in instead")
             return redirect("http://127.0.0.1:8000/login/")
+        if len(username) > 15:
+            messages.error(request, "Username must be under 15 characters")
+            return redirect("http://127.0.0.1:8000/register/")
+        if len(pass1) < 8:
+            messages.error(request, "Username must be under 15 characters") 
+        if pass1 != pass2:
+            messages.error(request, "Passwords do not match")
+            return redirect("http://127.0.0.1:8000/register/")
+        if not username.isalnum():
+            messages.error(request, "Username must be alpha numeric")
+            return redirect("http://127.0.0.1:8000/register/") 
+        
+        user = User.objects.create_user(username, email, pass1)
+        user.save()
 
-        else:
-            messages.error(request, "Username is already in use")
-            form = NewUserForm() 
+        messages.success(request, "Your account has been successfully created")
+
+        return redirect("http://127.0.0.1:8000/login/")
+
     return render (request, "math_app/register.html")
 
 def user_login(request):

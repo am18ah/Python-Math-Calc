@@ -11,16 +11,12 @@
 		{% csrf_token %}
 		<label for="">Username*</label><br>
 		<input type="text" id="username" name="username" Required><br>
-		<label>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</label><br><br>
+		<label>Required. 15 characters or fewer. Letters and digits only.</label><br><br>
 		<label for="">Email*</label><br>
 		<input type="email" id="email" name="email" Required><br>
 		<label for="">Password*</label><br>
-		<input type="password" id="pass1" name="pass1" Required><br><br>
-		<label><ul>
-			<li>Your password must contain at least 8 characters.</li>
-			<li>Your password can't be a commonly used password</li>
-			<li>Your password can't be entirely numeric</li>
-		</ul></label><br>
+		<input type="password" id="pass1" name="pass1" Required><br>
+		<label>Your password must contain at least 8 characters.</label><br><br>
 		<label for="">Password Confirmation*</label><br>
 		<input type="password" id="pass2" name="pass2" Required><br><br> 
 
