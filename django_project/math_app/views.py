@@ -17,7 +17,51 @@ def basicmath(request):
     return render(request, 'math_app/basicmath.html', {'title': 'Basic Math'})
 
 def trigonometry(request):
-    return render(request, 'math_app/trigonometry.html', {'title': 'Trigonometry'})
+    num = request.POST.get('num_input')
+
+    cos = 0
+    sin = 0
+    tan = 0
+    sec = 0
+    csc = 0
+    cot = 0
+
+    cos_d = 0
+    sin_d = 0
+    tan_d = 0
+    sec_d = 0
+    csc_d = 0
+    cot_d = 0
+
+    if num == None:
+        num = 0
+
+    isStr = isinstance(num,str)
+    print(f"******** Num is a string: {isStr}")
+
+    if isStr == True:
+        num = float(num)
+
+    cos = findCos(num,'R')
+    sin = findSin(num,'R')
+    tan = findTan(num,'R')
+
+    sec = findSec(num,'R')
+    csc = findCsc(num,'R')
+    cot = findCot(num,'R')
+
+    cos_d = findCos(num,'D')
+    sin_d = findSin(num,'D')
+    tan_d = findTan(num,'D')
+
+    sec_d = findSec(num,'D')
+    csc_d = findCsc(num,'D')
+    cot_d = findCot(num,'D')
+
+    return render(request, 'math_app/trigonometry.html', {'cos':cos, 'sin':sin, 'tan':tan, 'sec':sec, 'csc':csc, 'cot':cot, 'cos_d':cos_d, 'sin_d':sin_d, 'tan_d':tan_d, 'sec_d':sec_d, 'csc_d':csc_d, 'cot_d':cot_d})
+
+    #ans = request.POST.get('field1')
+    #return render(request, 'math_app/trigonometry.html',{"answer":ans})
 
 def algebra(request):
     if request.method=="POST":
@@ -97,7 +141,7 @@ def statistics(request):
         data = data.strip()
         li = list(data.split(" "))
         numeric_filter = filter(str.isdigit, li)
-        val = " ".join(numeric_filter) 
+        val = " ".join(numeric_filter)
         nums = list(val.split(" "))
         print (val)
         print(li)
@@ -105,7 +149,7 @@ def statistics(request):
             if i == '':
                 print("in num")
                 nums = 0
-            else:  
+            else:
                 print("In else")
                 d = [float(x) for x in nums]
                 median = findMean(d)
@@ -113,10 +157,10 @@ def statistics(request):
                 mode = findMode(d)
                 minimum = findMin(d)
                 maximum = findMax(d)
-                rangeVal = findRange(d) 
+                rangeVal = findRange(d)
                 var = numpy.var(d)
                 stdDev = numpy.std(d)
-       
+
     return render(request, 'math_app/statistics.html', {'median':median, 'mean':mean, 'mode':mode, 'maximum':maximum, 'minimum':minimum, 'rangeVal':rangeVal,'stdDev':stdDev, 'var':var})
 
 
@@ -140,15 +184,15 @@ def register(request):
             messages.error(request, "Invald username")
             return redirect("http://127.0.0.1:8000/register/")
         elif len(pass1) < 8:
-            messages.error(request, "Password must be under 15 characters") 
+            messages.error(request, "Password must be under 15 characters")
             return redirect("http://127.0.0.1:8000/register/")
         elif pass1 != pass2:
             messages.error(request, "Passwords do not match")
             return redirect("http://127.0.0.1:8000/register/")
         elif not username.isalnum():
             messages.error(request, "Username must be alpha numeric")
-            return redirect("http://127.0.0.1:8000/register/") 
-        
+            return redirect("http://127.0.0.1:8000/register/")
+
         user = User.objects.create_user(username, email, pass1)
         user.save()
 
