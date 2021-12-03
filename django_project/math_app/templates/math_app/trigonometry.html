@@ -1,57 +1,63 @@
 {% extends "math_app/base.html" %}
 {% block content %}
-	<div style = "position:relative; top: 90px;">
-      <h2>Trigonometry</h2>
-      <h>Compute a basic trigonometry problem</h><br><br>
+   <div style="position:relative; top:90px; ">
+      <h2><div>Trigonometry</div></h2>
+      <div style = "position:relative;">
+         <h>Compute a basic trigonometry problem</h><br><br>
 
-      <h3>Solve in degrees</h3> 
-      <h>Enter a number in degrees:</h><br>
+      </div>
 
-      <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="num_deg"></textarea><span style="margin-left:20px;">deg</span>
-      <style>input {width:8%; min-height: 50px;}</style>
-
-		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
-         <h>Select operation:</h>
-            <div class="keyboard_holder">
-					<div id="keyboard_math" class="keyboard_math_left">
-						<input type="button" styleclass="letter" value="sin">
-							<input type="button" class="letter" value="cos">
-							<input type="button" class="letter" value="tan">
-                     <input type="button" class="letter" value="cot">
-							<input type="button" class="letter" value="sec">
-                     <input type="button" class="letter" value="csc">
-							</div>
-						</div>
-	              </div>
-					
-					<div style=" position: relative; top:15px; ">
-						 <button class="btn btn-primary" type="submit">Evaluate</button>
-                </div>
-
-      <br><br>
-      <h3>Solve in radians</h3>
-      <h>Enter a number in radians:</h><br>
-
-      <textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="num_deg"></textarea><span style="margin-left:20px;">rad</span>
-      <style>input {width:8%; min-height: 50px;}</style>
-
-      <div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
-         <h>Select operation:</h>
-           <div class="keyboard_holder">
-               <div id="keyboard_math" class="keyboard_math_left">
-                  <input type="button" styleclass="letter" value="sin">
-                     <input type="button" class="letter" value="cos">
-                     <input type="button" class="letter" value="tan">
-                     <input type="button" class="letter" value="cot">
-                     <input type="button" class="letter" value="sec">
-                     <input type="button" class="letter" value="csc">
-                     </div>
-                  </div>
-                 </div>
-              
-               <div style=" position: relative; top:15px;">
-                  <button class="btn btn-primary" type="submit">Evaluate</button>
+      <div style="position:relative; top:10px;">
+         <strong><label for="input">Enter a number and the calcuator will compute cosine, sine, tangent, secant, cosecant and cotangent for you in radians and degrees:</label></strong>
+            <form method="post">
+               {% csrf_token %}
+         	   <div style = "position:relative; top:10px">
+                  <textarea type="number" name="num_input" id="num_input" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;"></textarea><span style="margin-left:20px;">rad/deg</span>
                </div>
-               <br><br>
+
+                <div style=" position: relative; top: 20px; left:18%;">
+            			<button class="btn btn-primary" type="submit">Evaluate</button>
+            	 </div>
+
+                <div style="position:relative; top:25px">
+                <br><h5>Answer in radians:</h5><br>
+           </form>
+
+     <style type="text/css">
+         dummydeclaration { padding-left: 4em; }
+         tab { padding-left: 2em; }
+     </style>
+
+     <h6>Cosine<tab>= </tab>{{cos}} radians</h6>
+     <h6>Sine<tab>= </tab>{{sin}} radians</h6>
+     <h6>Tangent<tab>= </tab>{{tan}} radians</h6>
+
+     <h6>Secant<tab>= </tab>{{sec}} radians</h6>
+     <h6>Cosecant<tab>= </tab>{{csc}} radians</h6>
+     <h6>Cotangent<tab>= </tab>{{cot}} radians</h6>
+
+     </div>
+   </div>
+
+
+
+   <div style="position:relative; top:50px;">
+      <br><h5>Answer in degrees:</h5><br>
+
+ <style type="text/css">
+     dummydeclaration { padding-left: 4em; }
+     tab { padding-left: 2em; }
+ </style>
+
+ <h6>Cosine<tab>= </tab>{{cos_d}} degrees</h6>
+ <h6>Sine<tab>= </tab>{{sin_d}} degrees</h6>
+ <h6>Tangent<tab>= </tab>{{tan_d}} degrees</h6>
+
+ <h6>Secant<tab>= </tab>{{sec_d}} degrees</h6>
+ <h6>Cosecant<tab>= </tab>{{csc_d}} degrees</h6>
+ <h6>Cotangent<tab>= </tab>{{cot_d}} degrees</h6>
+
+ </div>
 </div>
+
 {% endblock content %}

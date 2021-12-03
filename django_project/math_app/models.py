@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.conif import settings
 
 class Equation(models.Model):
 	type_of_math = models.CharField(max_length=100)

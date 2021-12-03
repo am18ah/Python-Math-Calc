@@ -11,21 +11,23 @@ import numpy
 def Add(x, y):
     if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x+y
-    else: 
-        results = str(x) + "+" + str(y)   
+    else:
+        results = str(x) + "+" + str(y)
         return results
 
 def Sub(x, y):
     if isinstance(x, (int, float)) and isinstance(y,(int, float)):
         return x-y
-    else: 
-        ans = str(x) + "-" + str(y)   
+    else:
+        ans = str(x) + "-" + str(y)
         return ans
 
 def Multiply(x, y):
         return x*y
 
 def Divide(x, y):
+        if y==0:
+            return "Divide by zero error, try again"
         return x/y
 
 def Power(x,y):
@@ -46,24 +48,81 @@ def findln(x):
 
 # function for trigonometry
 
-#due to float arithmetic things such as sin(pi) != 
+#due to float arithmetic things such as sin(pi) !=
 #however they are still extremely small numbers could be a way to round it
 #for better user experience
 
-def findSin(x):
-        return math.sin(x)
+def findSin(x, choice):
+        if choice == 'R':
+            ans = math.sin(x)
+        elif choice == 'D':
+            ans = math.sin(math.radians(x))    #if degrees is entered converts to radians to compute
+        if ans < 0.0000000000001:       #solves rounding error for expected 0 result like sin(pi)
+            ans = 0
+        elif ans > 0.999999999999:
+            ans = 1
+        return ans
 
-def findCos(x):
-        return math.cos(x)
+def findCos(x, choice):
+        if choice == 'R':
+            ans = math.cos(x)
+        elif choice == 'D':
+            ans = math.cos(math.radians(x))
+        if ans < 0.0000000000001:
+            ans = 0
+        elif ans > 0.999999999999:
+            ans = 1
+        return ans
 
-def findTan(x):
-        return math.tan(x)
+def findTan(x, choice):
+        if choice == 'R':
+            ans = math.tan(x)
+        elif choice == 'D':
+            ans = math.tan(math.radians(x))
+        if ans < 0.0000000000001:
+            ans = 0
+        elif ans > 0.999999999999:
+            ans = 1
+        return ans
 
-def findCsc(x):
-        return (1/math.sin(x))
+def findSec(x, choice):
+        if choice == 'R':
+            ans = (1/math.cos(x))
+        elif choice == 'D':
+            ans = (1/math.cos(math.radians(x)))
+        if ans < 0.0000000000001:
+            ans = 0
+        elif ans > 0.999999999999 and ans < 1.0000000000000000000000:
+            ans = 1
+        return ans
 
-def findSec(x):
-        return (1/math.cos(x))
+def findCsc(x, choice):
+        if x == 0:
+            ans = 0
+            return ans
+        if choice == 'R':
+            ans = (1/math.sin(x))
+        elif choice == 'D':
+            ans = (1/math.sin(math.radians(x)))
+        if ans < 0.0000000000001:
+            ans = 0
+        elif ans > 0.9999999999999999999 and ans < 1.0000000000000001:
+            ans = 1
+        return ans
+
+def findCot(x, choice):
+        if x == 0:
+            ans = 0
+            return ans
+        if choice == 'R':
+            ans = (1/math.tan(x))
+        elif choice == 'D':
+            ans = (1/math.tan(math.radians(x)))
+        if ans < 0.0000000000001:
+            ans = 0
+        elif ans > 0.9999999999999999999 and ans == 1.0000000000000002:
+            ans = 1
+        return ans
 
 def getPi():
     return numpy.pi
