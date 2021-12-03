@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
+from .mathfunctions import *
 
 def home(request):
     return render(request, 'math_app/home.html')
@@ -22,6 +23,8 @@ def algebra(request):
     return render(request, 'math_app/algebra.html', {'title': 'Algebra'})
 
 def statistics(request):
+  #  set = request.form['dataset']
+
     return render(request, 'math_app/statistics.html', {'title': 'Statistics'})
 
 def history(request):
