@@ -52,3 +52,10 @@ def register_request(request):
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render (request=request, template_name="math_app/register.html", context={"register_form":form})
+
+def calculation(request):
+    if request.method=="POST":
+        values=request.POST['text_input']
+        print(values)
+        return render(request=request, template_name='math_app/home.html', context={'result': 69})
+    return render(request=request,template_name='math_app/home.html', context={'result' : 69})

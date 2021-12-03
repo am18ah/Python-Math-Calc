@@ -14,6 +14,7 @@ urlpatterns = [
     path('trigonometry/', views.trigonometry, name='trigonometry'),
     path('algebra/', views.algebra, name='algebra'),
     path('statistics/', views.statistics, name='statistics'),
+    path('calculation/', views.calculation)
     ]
 
 urlpatterns += staticfiles_urlpatterns()
