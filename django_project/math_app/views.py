@@ -24,9 +24,12 @@ def algebra(request):
         values=request.POST['text_input']
         sub1 = 'log('
         sub2 = 'ln('
-        sub3 = ''
+        sub3 = 'e('
+        sub4 = 'sqrt('
+        sub5 = 'pi'
         val = ''
         try:
+            # Logarithmic Function
             if values is not None and sub1 in values:
                 for i in range(4, len(values)):
                     val += values[i]
@@ -34,8 +37,9 @@ def algebra(request):
                     ans = math.log10(1)
                     return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
                 else:
-                    ans = math.log10(int(val))
+                    ans = math.log10(eval(val))
                 return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+            # Natural logarithmic Function
             elif values is not None and sub2 in values:
                 for i in range(3, len(values)):
                     val += values[i]
@@ -43,11 +47,33 @@ def algebra(request):
                     ans = math.log1p(1)
                     return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
                 else:
-                    ans = math.log1p(int(val))
+                    ans = math.log1p(eval(val))
                     return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+            # Euler exponential
+            elif values is not None and sub3 in values:
+                for i in range(2, len(values)):
+                    val += values[i]
+                if val is None:
+                    ans = math.exp(1)
+                    return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+                else:
+                    ans = math.exp(eval(val))
+                    return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+            # Square Root
+            elif values is not None and sub4 in values:
+                for i in range(5, len(values)):
+                    val += values[i]
+                if val is None:
+                    ans = math.sqrt(0)
+                    return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+                else:
+                    ans = math.sqrt(eval(val))
+                    return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
+            # Else just evaluates
             else:
                 val = eval(values)
                 return render(request=request, template_name='math_app/algebra.html', context={'ans': val})
+            # Prevents website breaking errors
         except:
             return render(request=request, template_name='math_app/algebra.html', context={'ans': 'Error'})
     return render(request, 'math_app/algebra.html', {'title': 'Algebra'})
