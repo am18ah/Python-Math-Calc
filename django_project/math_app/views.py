@@ -18,6 +18,11 @@ def trigonometry(request):
     return render(request, 'math_app/trigonometry.html', {'title': 'Trigonometry'})
 
 def algebra(request):
+    if request.method=="POST":
+        values=request.POST['text_input']
+        val = eval(values)
+        return render(request=request, template_name='math_app/algebra.html', context={'ans': val})
+
     return render(request, 'math_app/algebra.html', {'title': 'Algebra'})
 
 def statistics(request):
@@ -53,9 +58,3 @@ def register_request(request):
     form = NewUserForm()
     return render (request=request, template_name="math_app/register.html", context={"register_form":form})
 
-def calculation(request):
-    if request.method=="POST":
-        values=request.POST['text_input']
-        print(values)
-        return render(request=request, template_name='math_app/home.html', context={'result': 69})
-    return render(request=request,template_name='math_app/home.html', context={'result' : 69})

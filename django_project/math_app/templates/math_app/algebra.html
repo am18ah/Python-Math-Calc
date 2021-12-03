@@ -1,12 +1,13 @@
 {% extends "math_app/base.html" %}
 {% block content %}
-	<form style = "position:relative; top:90px;" action="calculation" method="post" class="">
+	<form style = "position:relative; top:90px;" action="" method="post" class="">
+    {% csrf_token %}
       <h2>Algebra</h2> 
       <h>Compute an algebra problem</h>
 
       <div style = "position:relative; top:15px; ">
 
-      	<textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:79%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input" value = {{result}}></textarea>
+      	<textarea id="canvasId" oninput="this.value = this.value.replace(/\n/g,'')" style="width:79%; height:40px; font-size:24px; overflow:hidden; resize: none;" name="text_input" placeholder={{ ans }}></textarea>
 		<style>input {width:8%; min-height: 50px;}</style>
 		<div class="keyboard" id="keyboard" style = "width:85%; height:100%; ">
 			<div class="keyboard_holder">
@@ -35,7 +36,7 @@
 							<input type="button" class="letter" onclick="insertTextInInputValue(0);"value="0">
 							<input type="button" class="letter" onclick="insertTextInInputValue('+');"value="+">
 							<input type="button" class="letter" onclick="insertTextInInputValue('-');"value="-">
-							<input type="button" class="letter" onclick="insertTextInInputValue('x');"value="&times;">
+							<input type="button" class="letter" onclick="insertTextInInputValue('*');"value="&times;">
 							<input type="button" class="letter" onclick="insertTextInInputValue('/');"value="&divide;">
 							<input type="button" class="letter" onclick="insertTextInInputValue('.');"value=".">
 							<input type="button" class="letter" onclick="insertTextInInputValue('log(');"value="log">
