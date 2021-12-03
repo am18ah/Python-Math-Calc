@@ -103,6 +103,7 @@ class mathMethods:
     def findMin(x):
         return numpy.min(x)
 
+<<<<<<< Updated upstream
     def findMax(x):
         return numpy.max(x)
 
@@ -114,3 +115,7 @@ class mathMethods:
 
     def findVar(x):
         statistics.variance(x)
+=======
+def findVar(x):
+    statistics.variance(x)
+>>>>>>> Stashed changes
