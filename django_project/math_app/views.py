@@ -15,6 +15,8 @@ def about(request):
     return render(request, 'math_app/about.html', {'title': 'About'})
 
 def basicmath(request):
+    equation = Equation()
+    user = User.objects.filter(username='kayleighelmo').first()
     num1 = request.POST.get('num1_input')
     num2 = request.POST.get('num2_input')
     add = 0
@@ -35,20 +37,21 @@ def basicmath(request):
     if isStr2 == True:
        num2 = float(num2)
 
+    equation  = Equation(type_of_math = "Basic Math", math = num1, author = user)
+    equation.save()
+
     add = Add(num1,num2)
     sub = Sub(num1,num2)
     mult = Multiply(num1,num2)
     div = Divide(num1,num2)
     pow = Power(num1,num2)
-
-
-
-
-
+    
     return render(request, 'math_app/basicmath.html', {'add':add, 'sub':sub, 'mult':mult, 'div':div, 'pow':pow})
-def trigonometry(request):
-    num = request.POST.get('num_input')
 
+def trigonometry(request):
+    equation = Equation()
+    user = User.objects.filter(username='kayleighelmo').first()
+    num = request.POST.get('num_input')
     cos = 0
     sin = 0
     tan = 0
@@ -67,10 +70,12 @@ def trigonometry(request):
         num = 0
 
     isStr = isinstance(num,str)
-    print(f"******** Num is a string: {isStr}")
 
     if isStr == True:
         num = float(num)
+
+    equation  = Equation(type_of_math = "Trigonometry", math = num, author = user)
+    equation.save()
 
     cos = findCos(num,'R')
     sin = findSin(num,'R')
@@ -90,13 +95,10 @@ def trigonometry(request):
 
     return render(request, 'math_app/trigonometry.html', {'cos':cos, 'sin':sin, 'tan':tan, 'sec':sec, 'csc':csc, 'cot':cot, 'cos_d':cos_d, 'sin_d':sin_d, 'tan_d':tan_d, 'sec_d':sec_d, 'csc_d':csc_d, 'cot_d':cot_d})
 
-    #ans = request.POST.get('field1')
-    #return render(request, 'math_app/trigonometry.html',{"answer":ans})
-
 def algebra(request):
     equation = Equation()
     user = User.objects.filter(username='kayleighelmo').first()
-    values = ''
+    val = ''
     if request.method=="POST":
         values=request.POST['text_input']
         sub1 = 'log('
@@ -105,11 +107,17 @@ def algebra(request):
         sub4 = 'sqrt('
         sub5 = 'pi'
         val = ''
+
+        print("VAL" + values)
+        equation  = Equation(type_of_math = "Algebra", math = values, author = user)
+        equation.save()
+
         try:
             # Logarithmic Function
             if values is not None and sub1 in values:
                 for i in range(4, len(values)):
                     val += values[i]
+
                 if val is None:
                     ans = math.log10(1)
                     return render(request=request, template_name='math_app/algebra.html', context={'ans': ans})
@@ -151,13 +159,13 @@ def algebra(request):
                 val = eval(values)
                 return render(request=request, template_name='math_app/algebra.html', context={'ans': val})
             # Prevents website breaking errors
+            print("VALUES" + val)
+            equation = Equation(type_of_math = "Algebra", math = val , author = user)
+            equation.save()
         except:
             return render(request=request, template_name='math_app/algebra.html', context={'ans': 'Error'})
-    
-    v = list(values.split(" "))
+        
 
-    equation = Equation(type_of_math = "Algebra", math = v, author = user)
-    equation.save()
 
     return render(request, 'math_app/algebra.html', {'title': 'Algebra'})
 
@@ -207,7 +215,9 @@ def statistics(request):
 def history(request):
     #name = request.user
     #eq = {'equation': request.user.Equation.all()}
-    eq = {'equation':Equation.objects.all()}
+    allEquation = Equation.objects.all() 
+    sorted_by_name = Equation.objects.order_by('type_of_math') 
+    eq = {'equation':sorted_by_name}
     return render(request, 'math_app/history.html', eq)
 
 def register(request):

@@ -3,7 +3,7 @@
 	<div style = "position:relative; top:90px; ">
       <h2>Basic Math</h2>
        <div style = "position:relative;">
-          <h>Compute a basic math problem</h><br><br>
+          <h>Compute a basic math problem</h><br>
        </div>
        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
@@ -12,38 +12,39 @@
              <form method="post">
                 {% csrf_token %}
           	   <div style = "position:relative; top:10px">
-                   <br><h6>Enter first number:</h6><br>
+                   <br><h6>Enter first number:</h6>
                    <textarea type="number" name="num1_input" id="num1_input" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;"></textarea>
                 </div>
 
                 <div style = "position:relative; top:10px">
-                   <br><h6>Enter second number:</h6><br>
+                   <br><h6>Enter second number:</h6>
                    <textarea type="number" name="num2_input" id="num2_input" oninput="this.value = this.value.replace(/\n/g,'')" style="width:20%; height:40px; font-size:24px; overflow:hidden; resize: none;"></textarea>
                 </div>
 
-                 <div style=" position: relative; top: 20px; left:18%;">
+                 <div style=" position: relative; top: 20px; left:130px;">
              			<button class="btn btn-primary" type="submit">Evaluate</button>
              	 </div>
 
                  <div style="position:relative; top:25px">
                  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-                 <br><h5>Answer:</h5><br>
+                 <h5>Answer:</h5>
             </form>
 
         <style type="text/css">
             dummydeclaration { padding-left: 4em; }
-            tab { padding-left: 2em; }
+            tab { padding-left: 2.62em; }
             tab1{ padding-left: 7em; }
-            tab2{ padding-left: 6em; }
-            tab3{ padding-left: 9em; }
+            tab2{ padding-left: 7.7em; }
+            tab3{ padding-left: 10.24em; }
+            
         </style>
 
-        <h6>Sum (Addition)<tab2>= </tab2>{{add}}</h6>
+        <h6>Sum (Addition)<tab1>= </tab1>{{add}}</h6>
         <h6>Difference (Subtraction)<tab>= </tab>{{sub}}</h6>
-        <h6>Multiplication<tab1>= </tab1>{{mult}}</h6>
+        <h6>Multiplication<tab2>= </tab2>{{mult}}</h6>
         <h6>Division<tab3>= </tab3>{{div}}</h6>
-        <h6>Exponentiation<tab2>= </tab2>{{pow}}</h6>
-
+        <h6>Exponentiation<tab1>= </tab1>{{pow}}</h6>
+         <br><br><br>
 
         </div>
       </div>

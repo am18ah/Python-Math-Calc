@@ -1,16 +1,35 @@
 {% extends "math_app/base.html" %}
-{% block content %}
-    <div style = "position:relative; top:90px;">
-        <h2>Math Calculator History: {{user}}</h2>
-        <style type="text/css">
-            dummydeclaration { padding-left: 4em; }
-            tab { padding-left: 6em; }
-        </style>
-        {% for item in equation %}
-            <h7>{{item.type_of_math}}<tab></tab></h7>
-            <h7>{{item.math}}<tab></tab></h7>
-            <h7>{{item.time_posted}}<tab></tab></h7><br>
-        {% endfor %}
+{% block content %} 
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
 
-    </div>
+<div style = "position:relative; top:90px;">
+<body>
+<h2>Math Calculator History: {{user}}</h2></head>
+<p>Check out all of your past entries below!</p><br>
+
+<table style="width:100%">
+  <tr>
+    <th>Courses</th>
+    <th>Math Equation</th>
+    <th>Time Posted</th>
+  </tr>
+    {% for item in equation %}
+    <tr>
+    <td>{{item.type_of_math}}</td>
+    <td>{{item.math}}</td>
+    <td>{{item.time_posted}}</td>
+</tr>
+
+{% endfor %}
+</table>
+</body>
+</html>
+
+
 {% endblock content %}
